@@ -26,21 +26,19 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public Category create(String name, String description, UUID categoryId) {
+    public Category create(String name, UUID categoryId) {
         Category category = new Category();
         category.setName(name);
         category.setId(UUID.randomUUID());
-        category.setDescription(description);
         categories.add(category);
         return category;
     }
 
     @Override
-    public Category update(UUID id, String name, String description) {
+    public Category update(UUID id, String name) {
         for (Category category : categories) {
             if (category.getId().equals(id)) {
                 category.setName(name);
-                category.setDescription(description);
                 return category;
             }
         }

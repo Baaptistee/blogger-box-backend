@@ -10,9 +10,9 @@ public interface CategoryService {
 
     Category getById(UUID id);
 
-    Category create(String name, String description, UUID categoryId);
+    Category create(String name, UUID categoryId);
 
-    Category update(UUID id, String name, String description);
+    Category update(UUID id, String name);
 
     boolean deleteById(UUID id);
 }

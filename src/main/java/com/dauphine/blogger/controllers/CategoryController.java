@@ -1,4 +1,5 @@
 package com.dauphine.blogger.controllers;
+import com.dauphine.blogger.DTO.CategoryRequest;
 import com.dauphine.blogger.model.Category;
 import com.dauphine.blogger.service.CategoryService;
 import com.dauphine.blogger.serviceImpl.CategoryServiceImpl;
@@ -33,13 +34,13 @@ public class CategoryController {
     }
 
     @PostMapping
-    public Category createCategory(@RequestBody String name,  String description, UUID categoryId) {
-        return this.service.create(name, description, categoryId);
+    public Category createCategory(@RequestBody CategoryRequest categoryRequest) {
+        return this.service.create(categoryRequest.getName(), categoryRequest.getId());
     }
 
     @PutMapping("/{id}")
-    public Category updateCategory(@RequestBody String name,  String description, UUID categoryId) {
-        return this.service.update(categoryId, name, description);
+    public Category updateCategory(@RequestBody CategoryRequest categoryRequest) {
+        return this.service.update(categoryRequest.getId(), categoryRequest.getName());
     }
 
     @DeleteMapping("{id}")
