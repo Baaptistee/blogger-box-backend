@@ -1,6 +1,6 @@
 package com.dauphine.blogger.DTO;
 
-import com.dauphine.blogger.model.Category;
+import com.dauphine.blogger.models.Category;
 
 import java.util.Date;
 import java.util.UUID;

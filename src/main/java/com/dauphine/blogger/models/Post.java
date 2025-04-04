@@ -1,14 +1,24 @@
-package com.dauphine.blogger.model;
+package com.dauphine.blogger.models;
+
+import jakarta.persistence.*;
 
 import java.util.Date;
 import java.util.UUID;
 import java.util.Objects;
-
+@Entity
+@Table(name = "post")
 public class Post {
+    @Id
+    @Column(name = "id", nullable = false)
     private UUID id;
+    @ManyToOne
+    @JoinColumn(name = "category_id", nullable = false)
     private Category category;
+    @Column(name = "title", nullable = false)
     private String title;
+    @Column(name = "content", nullable = false)
     private String content;
+    @Column(name = "created_date", nullable = false)
     private Date createdDate ;
 
     public Post(UUID id, Category category, String title, String content) {
@@ -18,8 +28,13 @@ public class Post {
         this.content = content;
     }
 
-    public Post() {
+    public Post(Category category, String title, String content) {
+        this.category = category;
+        this.title = title;
+        this.content = content;
+    }
 
+    public Post() {
     }
 
     public UUID getId() {

@@ -5,6 +5,16 @@ spring:
   application:
     name: blogger-box-backend
 
+  datasource:
+    url: jdbc:postgresql://db.zrscwxldvihwzuzkfmwe.supabase.co:5432/postgres
+    username: postgres
+    password: NN4VMcf5eGNsjUJO
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+
 springdoc:
   api-docs:
     enabled: true
